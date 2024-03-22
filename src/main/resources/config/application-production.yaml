@@ -1,0 +1,18 @@
+server.port: 8082
+
+spring:
+  data.mongodb:
+    uri: mongodb://root:example@mongo:27017
+    database: something
+  kafka:
+    server00:
+      bootstrap-servers: kafka:29092
+      consumer:
+        group-id: 'enviromental-measurement-topic-id'
+        key-deserializer: 'org.apache.kafka.common.serialization.StringDeserializer'
+        value-deserializer: 'org.apache.kafka.common.serialization.ByteArrayDeserializer'
+        properties:
+          schema-register-server: 'http://schema-registry:8081'
+          schema-subject: 'enviromental-measurement-topic-value'
+          schema-version: '3'
+          envmess-topic: 'enviromental-measurement-topic'
