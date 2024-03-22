@@ -17,7 +17,7 @@ COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-#RUN mkdir -p /var/log/mykafka
+#RUN mkdir -p /var/log/cyberplanta
 #RUN mkdir -p /var/log/supervisor
 
 ENTRYPOINT ["java","-Dspring.profiles.active=production","-Xmx2048m","-cp","app:app/lib/*","com.rebirth.cyberplanta.consumer.ConsumerApp"]

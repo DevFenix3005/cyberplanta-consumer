@@ -15,10 +15,10 @@ import com.mongodb.client.MongoClients;
 
 @Configuration
 @EntityScan({
-        "com.rebirth.mykafka.commons.domain.entities"
+        "com.rebirth.cyberplanta.commons.domain.entities"
 })
 @EnableMongoRepositories({
-        "com.rebirth.mykafka.consumer.domain.repositories"
+        "com.rebirth.cyberplanta.consumer.domain.repositories"
 })
 @EnableMongoAuditing(auditorAwareRef = "mongoAuditorAware")
 public class MongoClientConfiguration {

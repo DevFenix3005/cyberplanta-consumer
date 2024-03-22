@@ -1,8 +1,10 @@
 <configuration>
 
-    <property name="LOG_PATH" value="/var/log/mykafka"/>
-    <property name="LOG_FILE" value="cyberplanta"/>
+    <property name="LOG_PATH" value="/var/log/cyberplanta"/>
+    <property name="LOG_FILE" value="main-logger"/>
     <property name="LOG_EXT" value="json"/>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
     <!--appender name="JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/${LOG_FILE}.${LOG_EXT}</file>
@@ -43,6 +45,8 @@
     </appender-->
 
     <appender name="CONSOLE_JSON" class="ch.qos.logback.core.ConsoleAppender">
+        <appendLineSeparator>true</appendLineSeparator>
+        <includeContextName>false</includeContextName>
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <providers>
                 <mdc>
@@ -66,8 +70,14 @@
         </encoder>
     </appender>
 
-    <root level="INFO">
+    <springProperty name="log.level" source="logging.level.root" defaultValue="INFO"/>
+    <root level="${log.level}" additivity="false">
         <appender-ref ref="CONSOLE_JSON"/>
     </root>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
 
 </configuration>

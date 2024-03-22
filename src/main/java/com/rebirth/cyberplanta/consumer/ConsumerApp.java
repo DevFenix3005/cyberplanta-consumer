@@ -22,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication(
         exclude = KafkaAutoConfiguration.class,
         scanBasePackages = {
-                "com.rebirth.mykafka.commons.core",
-                "com.rebirth.mykafka.utilities",
-                "com.rebirth.mykafka.consumer"
+                "com.rebirth.cyberplanta.commons.core",
+                "com.rebirth.cyberplanta.utilities",
+                "com.rebirth.cyberplanta.consumer"
         }
 )
 @Slf4j
