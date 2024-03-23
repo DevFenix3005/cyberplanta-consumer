@@ -4,7 +4,6 @@
 
 plugins {
     id 'com.rebirth.cyberplanta.java-application-conventions'
-    id "com.palantir.docker" version "0.36.0"
 }
 
 configurations {
@@ -44,10 +43,10 @@ tasks.register('unpack', Copy) {
 
 docker {
     name 'fenix3009/cyberplanta'
-    tag 'latest', '1.0.0'
+    tag 'registerCurrentVersion', 'fenix3009/cyberplanta:1.0.2'
+    tag 'registerLatest', 'fenix3009/cyberplanta:latest'
     dockerfile file('src/main/docker/Dockerfile')
     copySpec.from(tasks.unpack.outputs).into("dependency")
-    files file('src/main/docker/supervisord.conf')
     pull false
     noCache true
 }

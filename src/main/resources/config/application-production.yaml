@@ -14,5 +14,5 @@ spring:
         properties:
           schema-register-server: 'http://schema-registry:8081'
           schema-subject: 'enviromental-measurement-topic-value'
-          schema-version: '3'
+          schema-version: '1'
           envmess-topic: 'enviromental-measurement-topic'
